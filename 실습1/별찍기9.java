@@ -2,7 +2,11 @@ package backjoon;
 
 import java.util.Scanner;
 
+<<<<<<< HEAD
 public class  ë³„ì°ê¸°9 {
+=======
+public class º°Âï±â9 {
+>>>>>>> 721683e40a90d1461a5abf6e79db14c15103c3b2
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
@@ -31,6 +35,7 @@ for(int i=1; i<=2*num-1;i++)
 					}	
 				}		
 				System.out.println();
+<<<<<<< HEAD
 				
 			}
 	}
@@ -39,3 +44,8 @@ for(int i=1; i<=2*num-1;i++)
 	
 	
 }
+=======
+			}
+	}
+}
+>>>>>>> 721683e40a90d1461a5abf6e79db14c15103c3b2
