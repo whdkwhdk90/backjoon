@@ -2,18 +2,37 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        String[] conditionArr = br.readLine().split(" ");
+        int total = Integer.parseInt(conditionArr[0]);
+        int maximum = Integer.parseInt(conditionArr[1]);
 
-        String str = br.readLine();
-        long sum = 0;
-        long pow = 1;
-        for (int i=0; i<n; i++) {
-            sum += ((int)str.charAt(i) - 96) * pow;
-            pow = (pow * 31) % 1234567891;
+        List<Integer> cardList = new ArrayList<>();
+        for (String str : br.readLine().split(" ")) {
+            cardList.add(Integer.parseInt(str));
         }
-        System.out.println(sum % 1234567891);
+
+        int aroundMax = 0;
+        int newVal;
+        for (int i=0; i<total-2;i++) {
+            for (int j=i+1; j<total-1;j++) {
+                for (int k=j+1; k<total;k++) {
+                    newVal = cardList.get(i) + cardList.get(j) + cardList.get(k);
+                    if (newVal > maximum) {
+                        continue;
+                    }
+
+                    if (aroundMax < newVal) {
+                        aroundMax = newVal;
+                    }
+                }
+            }
+        }
+
+        System.out.println(aroundMax);
     }
 }
