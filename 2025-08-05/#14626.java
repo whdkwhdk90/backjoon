@@ -16,17 +16,29 @@ public class Main {
             }
 
             if (i % 2 == 1) {
-                total += val * 3;
+                total += (val * 3) % 10 ;
             } else {
-                total += val;
+                total += val % 10;
             }
+
+            total %= 10;
         }
 
-        total %= 10;
-        if (checkedIndex % 2 == 1) {
-            System.out.println((10 - total) / 3);
-        } else {
-            System.out.println(10 - total);
+        int answer = 0;
+        int temp = 0;
+        while (true){
+            if (checkedIndex % 2 == 1) {
+                temp = answer * 3 + total;
+            } else {
+                temp = answer + total;
+            }
+
+            if (temp % 10 == 0) {
+                System.out.println(answer);
+                break;
+            } 
+
+            answer++;
         }
     }
 }
